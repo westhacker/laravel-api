@@ -9,22 +9,65 @@
 		{!! HTML::style('assets/css/main.css') !!}
 		<!--[if lte IE 8]>{!! HTML::style('assets/css/ie8.css') !!}<![endif]-->
 		<!--[if lte IE 9]>{!! HTML::style('assets/css/ie9.css') !!}<![endif]-->
+		@yield('header')
 	</head>
 	<body>
-		<section id="nav">
-			<ul class="actions small">
-				<li><a href="#" class="button special fit small">Fit + Small</a></li>
-				<li><a href="#" class="button fit small">Fit + Small</a></li>
-				<li><a href="#" class="button special fit small">Fit + Small</a></li>
-			</ul>
-		</section>
+	<!-- Nav -->
+	<section id="nav">
+		<div class="row">
+			<div class="12u$ 24u$(medium) important(medium)">
+				<ul class="actions small">
+					<li class="pull-left" style="padding-left: 5%"><img src="{!! asset('images/icon.png') !!}" width="48px" height="32px"></li>
+					<li class="pull-left" ><h3><i class="fa fa-buysellads"></i><strong>PP</strong><span>in</span><i class="fa fa-buysellads"></i><strong>IR</strong></h3></li>
+
+					<li {!! classActivePath('/') !!}>
+						{!! link_to('/', trans('front/site.home'), ['class'=>'button special fit small']) !!}
+					</li>
+					<li><a href="#" class="button special fit small">Getting Started</a></li>
+					<li><a href="#" class="button special fit small">Docs</a></li>
+					<li><a href="#" class="button special fit small">Enterprise</a></li>
+					<li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
+						{!! link_to('articles', trans('front/site.blog'), ['class'=>'button special fit small']) !!}
+					</li>
+					@if(Request::is('auth/register'))
+						<li class="active">
+							{!! link_to('auth/register', trans('front/site.register'), ['class'=>'button special fit small']) !!}
+						</li>
+					@elseif(Request::is('password/email'))
+						<li class="active">
+							{!! link_to('password/email', trans('front/site.forget-password'), ['class'=>'button special fit small']) !!}
+						</li>
+					@else
+						@if(session('statut') == 'visitor')
+							<li {!! classActivePath('auth/login') !!}>
+								{!! link_to('auth/login', trans('front/site.connection'), ['class'=>'button special fit small']) !!}
+							</li>
+						@else
+							@if(session('statut') == 'admin')
+								<li>
+									{!! link_to('admin', trans('front/site.administration'), ['class'=>'button special fit small']) !!}
+								</li>
+							@elseif(session('statut') == 'redac')
+								<li>
+									{!! link_to('blog', trans('front/site.redaction'), ['class'=>'button special fit small']) !!}
+								</li>
+							@endif
+							<li>
+								{!! link_to('auth/logout', trans('front/site.logout'), ['class'=>'button special fit small']) !!}
+							</li>
+						@endif
+					@endif
+				</ul>
+			</div>
+		</div>
+	</section>
 		<!-- Header -->
 			<section id="header">
 				<div class="inner">
 					<!--span class="icon major fa-cloud"></span-->
 					<img src="{!! asset('images/icon.png') !!}" width="96px" height="64px">
 					<h1>Hi, I'm <strong>APPinAIR</strong>, <br />a cloud application platform</h1>
-					<p>APPinAIR is a web and mobile application OTA platform which allows to distribute and install multiple application's versions to registred users.</p>
+					<p>APPinAIR is a web and mobile application OTA platform which allows to distribute and install multiple application's versions.</p>
 					<ul class="actions">
 						<li><a href="#one" class="button scrolly">Discover</a></li>
 						<li><a href="#one" class="button scrolly">Get started</a></li>
@@ -35,7 +78,7 @@
 		<!-- One -->
 			<section id="one" class="main style1">
 				<div class="container">
-					<div class="row 150%">
+					<div class="container">
 						@if(session()->has('ok'))
 							@include('partials/error', ['type' => 'success', 'message' => session('ok')])
 						@endif
@@ -125,7 +168,7 @@
 			</section>
 
 		<!-- Five -->
-		<!--
+		<!-->
 			<section id="five" class="main style1">
 				<div class="container">
 					<header class="major special">
@@ -442,7 +485,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				</div>
 			</section>
-		-->
+		<!-->
 
 		<!-- Footer -->
 			<section id="footer">
@@ -454,7 +497,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; APPinAIR 2016</li><li><a href="#">Join us</a></li>
+					<li>&copy; APPinAIR 2016</li><li><a href="{!! url('contact/create') !!}">Contact us</a></li>
 				</ul>
 			</section>
 

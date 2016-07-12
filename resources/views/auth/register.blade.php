@@ -1,35 +1,39 @@
-@extends('front.template')
+@extends('front.simpleTemplate')
+
+@section('navinfo')
+	<img src="{!! asset('images/cloud.png') !!}" >
+	<h3>Join <strong>APPinAIR</strong>, create the future</h3>
+@stop
 
 @section('main')
-	<div class="row">
-		<div class="box">
-			<div class="col-lg-12">
-				<hr>	
-				<h2 class="intro-text text-center">{{ trans('front/register.title') }}</h2>
-				<hr>
-				<p>{{ trans('front/register.infos') }}</p>		
+	<h4>{{ trans('front/register.title') }}</h4>
+	<hr>
+	<p>{{ trans('front/register.infos') }}</p>
+	{!! Form::open(['url' => 'auth/register', 'method' => 'post', 'role' => 'form']) !!}
+	<div class="row uniform 50%">
 
-				{!! Form::open(['url' => 'auth/register', 'method' => 'post', 'role' => 'form']) !!}	
-
-					<div class="row">
-						{!! Form::control('text', 6, 'username', $errors, trans('front/register.pseudo'), null, [trans('front/register.warning'), trans('front/register.warning-name')]) !!}
-						{!! Form::control('email', 6, 'email', $errors, trans('front/register.email')) !!}
-					</div>
-					<div class="row">	
-						{!! Form::control('password', 6, 'password', $errors, trans('front/register.password'), null, [trans('front/register.warning'), trans('front/register.warning-password')]) !!}
-						{!! Form::control('password', 6, 'password_confirmation', $errors, trans('front/register.confirm-password')) !!}
-					</div>
-					{!! Form::text('address', '', ['class' => 'hpet']) !!}	
-
-					<div class="row">	
-						{!! Form::submit(trans('front/form.send'), ['col-lg-12']) !!}
-					</div>
-					
-				{!! Form::close() !!}
-
-			</div>
+		<div class="6u 12u$(xsmall)">
+			{!! Form::control('text', 6, 'username', $errors, trans('front/register.pseudo'), null) !!}
 		</div>
+		<div class="6u$ 12u$(xsmall)">
+			{!! Form::control('email', 6, 'email', $errors, trans('front/register.email')) !!}
+		</div>
+		<div class="6u 12u$(xsmall)">
+			{!! Form::control('password', 6, 'password', $errors, trans('front/register.password'), null) !!}
+		</div>
+		<div class="6u 12u$(xsmall)">
+			{!! Form::control('password', 6, 'password_confirmation', $errors, trans('front/register.confirm-password')) !!}
+		</div>
+		<div class="12u$">
+			<ul class="actions">
+				<li><input type="submit" value="{{trans('front/form.send')}}" class="special" /></li>
+				<li><input type="reset" value="Reset" /></li>
+			</ul>
+		</div>
+
 	</div>
+	{!! Form::close() !!}
+
 @stop
 
 @section('scripts')

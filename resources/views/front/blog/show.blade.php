@@ -1,4 +1,4 @@
-@extends('front.template')
+@extends('front.simpleTemplate')
 
 @section('head')
 
@@ -6,79 +6,74 @@
 
 @stop
 
+@section('navinfo')
+	<img src="{!! asset('images/cloud.png') !!}" >
+	<h3>Join <strong>APPinAIR</strong>, create the future</h3>
+@stop
+
 @section('main')
-	<div class="row">
-		<div class="box">
-			<div class="col-lg-12">
-				<hr>
-				<h2 class="text-center">{{ $post->title }}
-				<br>
-				<small>{{ $post->user->username }} {{ trans('front/blog.on') }} {!! $post->created_at . ($post->created_at != $post->updated_at ? trans('front/blog.updated') . $post->updated_at : '') !!}</small>
-				</h2>
-				<hr>
-				{!! $post->summary !!}<br>
-				{!! $post->content !!}
-				<hr>
-				@if($post->tags->count())
-					<div class="text-center">
-						@if($post->tags->count() > 0)
-							<small>{{ trans('front/blog.tags') }}</small> 
-							@foreach($post->tags as $tag)
-								{!! link_to('blog/tag?tag=' . $tag->id, $tag->tag, ['class' => 'btn btn-default btn-xs']) !!}
-							@endforeach
-						@endif
-					</div>
+
+	<h2 class="text-center">{{ $post->title }}</h2>
+	<blockquote>{{ $post->user->username }} {{ trans('front/blog.on') }} {!! $post->created_at . ($post->created_at != $post->updated_at ? trans('front/blog.updated') . $post->updated_at : '') !!}</blockquote>
+
+	{!! $post->summary !!}
+	<hr>
+	{!! $post->content !!}
+	<hr>
+	@if($post->tags->count())
+		<div class="text-center">
+			@if($post->tags->count() > 0)
+				<small>{{ trans('front/blog.tags') }}</small>
+				@foreach($post->tags as $tag)
+					{!! link_to('blog/tag?tag='. $tag->id, $tag->tag, ['class' => 'btn btn-default btn-xs']) !!}
+				@endforeach
+			@endif
+		</div>
+	@endif
+@stop
+
+@section('comment')
+	<section id="four" class="main style2 special">
+		<div class="container">
+
+			<div style="text-align: left">
+				<header class="major">
+					<h2>{{ trans('front/blog.comments') }}</h2>
+				</header>
+				@if($comments->count())
+					@foreach($comments as $comment)
+						<div class="commentitem">
+							<h3>
+								<small>{{ $comment->user->username . ' ' . trans('front/blog.on') . ' ' . $comment->created_at }}</small>
+								@if($user && $user->username == $comment->user->username)
+									<a id="deletecomment{!! $comment->id !!}" href="#" class="deletecomment"><span class="fa fa-fw fa-trash pull-right" data-toggle="tooltip" data-placement="left" title="{{ trans('front/blog.delete') }}"></span></a>
+									<a id="comment{!! $comment->id !!}" href="#" class="editcomment"><span class="fa fa-fw fa-pencil pull-right" data-toggle="tooltip" data-placement="left" title="{{ trans('front/blog.edit') }}"></span></a>
+								@endif
+							</h3>
+							<div id="contenu{!! $comment->id !!}">{!! $comment->content !!}</div>
+							<hr>
+						</div>
+					@endforeach
 				@endif
 			</div>
+
+
+			@if(session()->has('warning'))
+				@include('partials/error', ['type' => 'warning', 'message' => session('warning')])
+			@endif
+			@if(session('statut') != 'visitor')
+				{!! Form::open(['url' => 'comment']) !!}
+				{!! Form::hidden('post_id', $post->id) !!}
+				{!! Form::control('textarea', 12, 'comments', $errors, trans('front/blog.comment')) !!}
+			<br>
+				{!! Form::submit(trans('front/form.send'), ['col-lg-12']) !!}
+				{!! Form::close() !!}
+			@else
+				<div class="text-center"><i class="text-center">{{ trans('front/blog.info-comment') }}</i></div>
+			@endif
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="box">
-			<div class="col-lg-12">
-				<div class="col-lg-12">
-					<hr>
-					<h3 class="text-center">{{ trans('front/blog.comments') }}</h3>
-					<hr>
-
-					@if($comments->count())
-						@foreach($comments as $comment)
-							<div class="commentitem">
-								<h3>
-									<small>{{ $comment->user->username . ' ' . trans('front/blog.on') . ' ' . $comment->created_at }}</small>
-									@if($user && $user->username == $comment->user->username) 
-										<a id="deletecomment{!! $comment->id !!}" href="#" class="deletecomment"><span class="fa fa-fw fa-trash pull-right" data-toggle="tooltip" data-placement="left" title="{{ trans('front/blog.delete') }}"></span></a>
-										<a id="comment{!! $comment->id !!}" href="#" class="editcomment"><span class="fa fa-fw fa-pencil pull-right" data-toggle="tooltip" data-placement="left" title="{{ trans('front/blog.edit') }}"></span></a>
-									@endif
-								</h3>
-								<div id="contenu{!! $comment->id !!}">{!! $comment->content !!}</div>
-								<hr>
-							</div>
-						@endforeach
-					@endif	
-
-					<div class="row" id="formcreate"> 
-						@if(session()->has('warning'))
-							@include('partials/error', ['type' => 'warning', 'message' => session('warning')])
-						@endif	
-						@if(session('statut') != 'visitor')
-							{!! Form::open(['url' => 'comment']) !!}	
-								{!! Form::hidden('post_id', $post->id) !!}
-								{!! Form::control('textarea', 12, 'comments', $errors, trans('front/blog.comment')) !!}
-								{!! Form::submit(trans('front/form.send'), ['col-lg-12']) !!}
-							{!! Form::close() !!}
-						@else
-							<div class="text-center"><i class="text-center">{{ trans('front/blog.info-comment') }}</i></div>
-						@endif
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-
+	</section>
 @stop
 
 @section('scripts')
