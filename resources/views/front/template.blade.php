@@ -69,7 +69,7 @@
 					<p>APPinAIR is hybrid technology to expand web applications to mobile and desktop platforms.</p>
 					<ul class="actions">
 						<li><a href="#one" class="button scrolly">Discover</a></li>
-						<li><a href="#one" class="button scrolly">Get started</a></li>
+						<li><a href="http://appinair.com:8080/web/" class="button scrolly">Get started</a></li>
 					</ul>
 				</div>
 			</section>
