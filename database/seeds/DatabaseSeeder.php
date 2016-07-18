@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder {
 
 		User::create([
 			'username' => 'GreatAdmin',
-			'email' => 'admin@la.fr',
+			'email' => 'admin@appinair.com',
 			'password' => bcrypt('admin'),
 			'seen' => true,
 			'role_id' => 1,
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder {
 
 		User::create([
 			'username' => 'GreatRedactor',
-			'email' => 'redac@la.fr',
+			'email' => 'redac@appinair.com',
 			'password' => bcrypt('redac'),
 			'seen' => true,
 			'role_id' => 2,
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder {
 
 		User::create([
 			'username' => 'Walker',
-			'email' => 'walker@la.fr',
+			'email' => 'walker@appinair.com',
 			'password' => bcrypt('walker'),
 			'role_id' => 3,
 			'confirmed' => true
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder {
 
 		User::create([
 			'username' => 'Slacker',
-			'email' => 'slacker@la.fr',
+			'email' => 'slacker@appinair.com',
 			'password' => bcrypt('slacker'),
 			'role_id' => 3,
 			'confirmed' => true
@@ -70,42 +70,42 @@ class DatabaseSeeder extends Seeder {
 
 		Contact::create([
 			'name' => 'Dupont',
-			'email' => 'dupont@la.fr',
+			'email' => 'dupont@appinair.com',
 			'text' => 'Lorem ipsum inceptos malesuada leo fusce tortor sociosqu semper, facilisis semper class tempus faucibus tristique duis eros, cubilia quisque habitasse aliquam fringilla orci non. Vel laoreet dolor enim justo facilisis neque accumsan, in ad venenatis hac per dictumst nulla ligula, donec mollis massa porttitor ullamcorper risus. Eu platea fringilla, habitasse.'
 		]);
 
 		Contact::create([
 			'name' => 'Durand',
-			'email' => 'durand@la.fr',
+			'email' => 'durand@appinair.com',
 			'text' => ' Lorem ipsum erat non elit ultrices placerat, netus metus feugiat non conubia fusce porttitor, sociosqu diam commodo metus in. Himenaeos vitae aptent consequat luctus purus eleifend enim, sollicitudin eleifend porta malesuada ac class conubia, condimentum mauris facilisis conubia quis scelerisque. Lacinia tempus nullam felis fusce ac potenti netus ornare semper molestie, iaculis fermentum ornare curabitur tincidunt imperdiet scelerisque imperdiet euismod.'
 		]);
 
 		Contact::create([
 			'name' => 'Martin',
-			'email' => 'martin@la.fr',
+			'email' => 'martin@appinair.com',
 			'text' => 'Lorem ipsum tempor netus aenean ligula habitant vehicula tempor ultrices, placerat sociosqu ultrices consectetur ullamcorper tincidunt quisque tellus, ante nostra euismod nec suspendisse sem curabitur elit. Malesuada lacus viverra sagittis sit ornare orci, augue nullam adipiscing pulvinar libero aliquam vestibulum, platea cursus pellentesque leo dui. Lectus curabitur euismod ad, erat.',
 			'seen' => true
 		]);
 
 		Tag::create([
-			'tag' => 'Tag1'
+			'tag' => 'APPinAIR'
 		]);
 
 		Tag::create([
-			'tag' => 'Tag2'
+			'tag' => 'Ionic'
 		]);
 
 		Tag::create([
-			'tag' => 'Tag3'
+			'tag' => 'Electron'
 		]);
 
 		Tag::create([
-			'tag' => 'Tag4'
+			'tag' => 'AngularJS'
 		]);
 
 		Post::create([
-			'title' => 'Post 1',
-			'slug' => 'post-1', 
+			'title' => 'Ionic Framework',
+			'slug' => 'ionic',
 			'summary' => '<img alt="" src="/filemanager/userfiles/user2/mega-champignon.png" style="float:left; height:128px; width:128px" />' . $lipsum->getContent(50),
 			'content' => $lipsum->getContent(500), 
 			'active' => true,
@@ -113,8 +113,17 @@ class DatabaseSeeder extends Seeder {
 		]);
 
 		Post::create([
-			'title' => 'Post 2',
-			'slug' => 'post-2', 
+			'title' => 'AngularJS',
+			'slug' => 'angularjs',
+			'summary' => '<img alt="" src="/filemanager/userfiles/user2/mega-champignon.png" style="float:left; height:128px; width:128px" />' . $lipsum->getContent(50),
+			'content' => $lipsum->getContent(500),
+			'active' => true,
+			'user_id' => 1
+		]);
+
+		Post::create([
+			'title' => 'Electron',
+			'slug' => 'electron',
 			'summary' => '<img alt="" src="/filemanager/userfiles/user2/goomba.png" style="float:left; height:128px; width:128px" />' . $lipsum->getContent(50),
 			'content' => '<p>Lorem ipsum convallis ac curae non elit ultrices placerat netus metus feugiat, non conubia fusce porttitor sociosqu diam commodo metus in himenaeos, vitae aptent consequat luctus purus eleifend enim sollicitudin eleifend porta. Malesuada ac class conubia condimentum mauris facilisis conubia quis scelerisque lacinia, tempus nullam felis fusce ac potenti netus ornare semper. Molestie iaculis fermentum ornare curabitur tincidunt imperdiet scelerisque, imperdiet euismod scelerisque torquent curae rhoncus, sollicitudin tortor placerat aptent hac nec. Posuere suscipit sed tortor neque urna hendrerit vehicula duis litora tristique congue nec auctor felis libero, ornare habitasse nec elit felis inceptos tellus inceptos cubilia quis mattis faucibus sem non.</p>
 
@@ -145,23 +154,6 @@ class DatabaseSeeder extends Seeder {
 			'user_id' => 2
 		]);
 
-		Post::create([
-			'title' => 'Post 3',
-			'slug' => 'post-3', 
-			'summary' => '<img alt="" src="/filemanager/userfiles/user2/rouge-shell.png" style="float:left; height:128px; width:128px" />' . $lipsum->getContent(50),
-			'content' => $lipsum->getContent(500), 
-			'active' => true,
-			'user_id' => 2
-		]);
-
-		Post::create([
-			'title' => 'Post 4',
-			'slug' => 'post-4', 
-			'summary' => '<img alt="" src="/filemanager/userfiles/user2/rouge-shyguy.png" style="float:left; height:128px; width:128px" />' . $lipsum->getContent(50),
-			'content' => $lipsum->getContent(500), 
-			'active' => true,
-			'user_id' => 2
-		]);
 
 		PostTag::create([
 			'post_id' => 1,

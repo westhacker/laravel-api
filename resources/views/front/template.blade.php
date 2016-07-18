@@ -23,7 +23,6 @@
 					<li {!! classActivePath('/') !!}>
 						{!! link_to('/', trans('front/site.home'), ['class'=>'button special fit small']) !!}
 					</li>
-					<li><a href="#" class="button special fit small">Getting Started</a></li>
 					<li><a href="#" class="button special fit small">Docs</a></li>
 					<li><a href="#" class="button special fit small">Enterprise</a></li>
 					<li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
@@ -67,7 +66,7 @@
 					<!--span class="icon major fa-cloud"></span-->
 					<img src="{!! asset('images/icon.png') !!}" width="96px" height="64px">
 					<h1>Hi, I'm <strong>APPinAIR</strong>, <br />a cloud application platform</h1>
-					<p>APPinAIR is a web and mobile application OTA platform which allows to distribute and install multiple application's versions.</p>
+					<p>APPinAIR is hybrid technology to expand web applications to mobile and desktop platforms.</p>
 					<ul class="actions">
 						<li><a href="#one" class="button scrolly">Discover</a></li>
 						<li><a href="#one" class="button scrolly">Get started</a></li>
@@ -100,8 +99,6 @@
 								<li><span class="icon style2 major fa-android"></span></li>
 								<li><span class="icon style3 major fa-windows"></span></li>
 								<li><span class="icon style4 major fa-linux"></span></li>
-								<li><span class="icon style5 major fa-desktop"></span></li>
-								<li><span class="icon style6 major fa-html5"></span></li>
 							</ul>
 						</div>
 						<div class="6u$ 12u$(medium)">
@@ -109,9 +106,8 @@
 								<h2>Multi-platform<br />
 								both desktop and mobile</h2>
 							</header>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-							<p>Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.</p>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
+							<p>If you have developed a web application, and you want to expand it to other mobile or desktop platforms, APPinAIR should your best choice. Taking advantage of Ionic and Electron, APPinAIR would realize a real cross-platform technology.</p>
+							<p>APPinAIR allows you to use standard web technologies - HTML5, CSS3, and JavaScript for cross-platform development. Applications execute within wrappers targeted to each platform, and rely on standards-compliant API bindings to access each device's capabilities such as sensors, data, network status, etc.</p>
 						</div>
 					</div>
 				</div>
@@ -121,32 +117,32 @@
 			<section id="three" class="main style1 special">
 				<div class="container">
 					<header class="major">
-						<h2>Adipiscing amet consequat</h2>
+						<h2>Standing on the shoulders of giants</h2>
 					</header>
-					<p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p>
+					<p>APPinAIR will see further than others</p>
 					<div class="row 150%">
 						<div class="4u 12u$(medium)">
 							<span class="image fit"><img src="images/ionic.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<h3>Ionic</h3>
+							<p>Ionic is built to perform and behave great on the latest mobile devices. Designed with web application best practices.</p>
 							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="{{url('blog/ionic')}}" class="button">More</a></li>
 							</ul>
 						</div>
 						<div class="4u 12u$(medium)">
 							<span class="image fit"><img src="images/electron.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<h3>Electron</h3>
+							<p>Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.</p>
 							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="{{url('blog/electron')}}" class="button">More</a></li>
 							</ul>
 						</div>
 						<div class="4u$ 12u$(medium)">
 							<span class="image fit"><img src="images/angular.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<h3>AngularJS</h3>
+							<p>APPinAIR builds on top of AngularJS to create a powerful SDK well-suited for building rich and robust mobile and desktop apps.</p>
 							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="{{url('blog/angularjs')}}" class="button">More</a></li>
 							</ul>
 						</div>
 					</div>
@@ -157,9 +153,9 @@
 			<section id="four" class="main style2 special">
 				<div class="container">
 					<header class="major">
-						<h2>Ipsum feugiat consequat?</h2>
+						<h2>Join APPinAIR?</h2>
 					</header>
-					<p>Sed lacus nascetur ac ante amet sapien.</p>
+					<p>APPinAIR team are working hard...</p>
 					<ul class="actions uniform">
 						<li><a href="#" class="button special">Sign Up</a></li>
 						<li><a href="#" class="button">Learn More</a></li>
@@ -492,7 +488,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				<ul class="icons">
 					<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span class="label">Instagram</span></a></li>
 					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>

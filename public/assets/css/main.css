@@ -1361,6 +1361,10 @@
 
 	@media screen and (max-width: 480px) {
 
+		#nav{
+			display: none;
+		}
+
 		.row > * {
 			padding: 0 0 0 1.5em;
 		}
@@ -1575,6 +1579,10 @@
 	}
 
 	@media screen and (max-width: 320px) {
+
+		#nav{
+			display: none;
+		}
 
 		.row > * {
 			padding: 0 0 0 1.5em;

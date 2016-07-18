@@ -23,7 +23,6 @@
 							<li {!! classActivePath('/') !!}>
 								{!! link_to('/', trans('front/site.home'), ['class'=>'button special fit small']) !!}
 							</li>
-							<li><a href="#" class="button special fit small">Getting Started</a></li>
 							<li><a href="#" class="button special fit small">Docs</a></li>
 							<li><a href="#" class="button special fit small">Enterprise</a></li>
 							<li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
@@ -91,7 +90,7 @@
 				<ul class="icons">
 					<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span class="label">Instagram</span></a></li>
 					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
